@@ -8,6 +8,7 @@ public class CubeInteractor : MonoBehaviour, IInteractable
     public void OnInteract()
     {
         Debug.Log("Cube Interacted!");
+        HoldingManager.Instance.PickUp(gameObject);
     }
 
     public void StorInteract()

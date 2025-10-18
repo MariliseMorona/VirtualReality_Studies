@@ -5,8 +5,11 @@ using UnityEngine;
 public class HoldingManager : MonoBehaviour
 {
 
-    private GameObject heldObject;
     public static HoldingManager Instance { get; private set; }
+    private GameObject heldObject;
+    [SerializeField] private Transform cameraTransform;
+    [SerializeField] private float holdDistance = 0.5f;
+    [SerializeField] private float spead = 10f;
 
     void Awake()
     {
@@ -37,7 +40,7 @@ public class HoldingManager : MonoBehaviour
             heldObject = null;
         }
     }
-    
+
     public void Drop()
     {
         if (heldObject != null)
@@ -51,6 +54,15 @@ public class HoldingManager : MonoBehaviour
             }
 
             heldObject = null;
+        }
+    }
+    
+    void Update()
+    {
+        if (heldObject != null)
+        {
+            Vector3 targetPosition = cameraTransform.position + cameraTransform.forward * holdDistance;
+            heldObject.transform.position = Vector3.Lerp(heldObject.transform.position, targetPosition, Time.deltaTime * spead);
         }
     }
 }

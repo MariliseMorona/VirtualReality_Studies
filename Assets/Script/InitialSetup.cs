@@ -23,15 +23,15 @@ public class InitialSetup : MonoBehaviour
         planeManager.planesChanged -= OnPlanesUpdated;
     }
 
-    public void onClickStartExperience()
+    public void OnClickStartExperience()
     {
         Debug.Log("Iniciando a experience AR ...");
         startExperienceUI.SetActive(false);
         planeManager.enabled = false;
-        foreach (var plane in planeManager.trackables)
-        {
-            plane.gameObject.SetActive(false);
-        }
+        // foreach (var plane in planeManager.trackables)
+        // {
+        //     plane.gameObject.SetActive(false);
+        // }
         startExperience.OnStratExperiente(GetLargestPlane());
     }
 
