@@ -1,9 +1,17 @@
+<<<<<<< HEAD
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
+=======
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.XR.ARFoundation; 
+>>>>>>> 8c05bc99 (add files project)
 
 public class StartExperience : MonoBehaviour
 {
     [SerializeField] private GameObject cube;
+<<<<<<< HEAD
     [Tooltip("Câmera AR (deixe vazio para usar Main Camera)")]
     [SerializeField] private Camera arCamera;
     [Tooltip("Distância à frente da câmera onde os blocos aparecem")]
@@ -52,5 +60,11 @@ public class StartExperience : MonoBehaviour
                 rb.useGravity = true;
             }
         }
+=======
+    // Start is called before the first frame update
+    public void OnStratExperiente(ARPlane plane)
+    {
+        Instantiate(cube, plane.center, Quaternion.identity);
+>>>>>>> 8c05bc99 (add files project)
     }
 }

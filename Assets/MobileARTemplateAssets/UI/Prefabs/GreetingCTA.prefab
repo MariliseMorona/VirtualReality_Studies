@@ -85,7 +85,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6235513300977795393}
+<<<<<<< HEAD
   - component: {fileID: 6235513300977795394}
+=======
+>>>>>>> 8c05bc99 (add files project)
   m_Layer: 0
   m_Name: GreetingCTA
   m_TagString: Untagged
@@ -118,6 +121,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 110, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
+<<<<<<< HEAD
 --- !u!114 &6235513300977795394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,6 +134,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7f2c8e1b4d94f4e8e3a5c6d7f8b9e0a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+=======
+>>>>>>> 8c05bc99 (add files project)
 --- !u!1 &2786363442763061801
 GameObject:
   m_ObjectHideFlags: 0
@@ -328,9 +334,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+<<<<<<< HEAD
       - m_Target: {fileID: 6235513300977795394}
         m_TargetAssemblyTypeName: GreetingModalClose, Assembly-CSharp
         m_MethodName: CloseAndStartExperience
+=======
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: GoalManager, Assembly-CSharp
+        m_MethodName: ForceCompleteGoal
+>>>>>>> 8c05bc99 (add files project)
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 
@@ -23,9 +25,17 @@ public class InitialSetup : MonoBehaviour
 
     public void OnClickStartExperience()
     {
+        // Debug.Log("Iniciando a experience AR ...");
+        // CloseModal();
+        // OnStartExperienceAfterModalClosed();
         Debug.Log("Iniciando a experience AR ...");
-        CloseModal();
-        OnStartExperienceAfterModalClosed();
+        startExperienceUI.SetActive(false);
+        planeManager.enabled = false;
+        foreach (var plane in planeManager.trackables)
+        {
+            plane.gameObject.SetActive(false);
+        }
+        startExperience.OnStratExperiente(GetLargestPlane());
     }
 
     /// <summary>
@@ -65,6 +75,7 @@ public class InitialSetup : MonoBehaviour
     private void OnPlanesUpdated(ARPlanesChangedEventArgs args)
     {
         if (startExperienceUI == null) return;
+
         foreach (var plane in args.updated)
         {
             if (plane.extents.x * plane.extents.y >= requiredArea)
@@ -90,10 +101,10 @@ public class InitialSetup : MonoBehaviour
         rect.anchoredPosition = Vector2.zero;
         rect.localPosition = new Vector3(rect.localPosition.x, rect.localPosition.y, 0f);
     }
+
     
     private ARPlane GetLargestPlane()
     {
-        if (planeManager == null) return null;
         ARPlane biggestPlane = null;
         float biggestArea = 0f;
 
@@ -106,6 +117,11 @@ public class InitialSetup : MonoBehaviour
                 biggestPlane = plane;
             }
         }
+
+        //  if (planeManager == null) return null;
+        // {
+        //         startExperienceUI.SetActive(true);
+        // }
 
         return biggestPlane;
     }
