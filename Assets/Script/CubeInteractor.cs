@@ -5,7 +5,6 @@ using UnityEngine;
 public class CubeInteractor : MonoBehaviour, IInteractable
 {
 
-<<<<<<< HEAD
     private bool isHold = false;
 
 
@@ -25,11 +24,6 @@ public class CubeInteractor : MonoBehaviour, IInteractable
             HoldingManager.Instance.Drop();
             isHold = false;
         }
-=======
-    public void OnInteract()
-    {
-        Debug.Log("Cube Interacted!");
->>>>>>> 8c05bc99 (add files project)
     }
 
     public void StorInteract()
@@ -41,20 +35,11 @@ public class CubeInteractor : MonoBehaviour, IInteractable
     void Update()
     {
        
-<<<<<<< HEAD
         if (InputHandler.TryRayCastHit(out RaycastHit hitObject))
         {
             if (hitObject.transform == transform)
             {
                OnInteract();
-=======
-        if (InputHandler.TryRayCastHit(out RaycastHit hit))
-        {
-            if (hit.transform == transform)
-            {
-               OnInteract();
-                // Add further interaction logic here
->>>>>>> 8c05bc99 (add files project)
             }
         }
     }
