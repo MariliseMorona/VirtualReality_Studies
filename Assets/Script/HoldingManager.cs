@@ -30,10 +30,12 @@ public class HoldingManager : MonoBehaviour
             heldObject = obj;
             Debug.Log("Picking up " + obj.name);
 
+            obj.transform.SetParent(null);
+            
             var body = heldObject.GetComponent<Rigidbody>();
             if (body != null)
             {
-                // nÃo é a fisica gravitacional que vai segurar o objeto mas sim o movimento queeu fizer
+                // nÃo é a fisica gravitacional que vai segurar o objeto mas sim o movimento que eu fizer
                 body.isKinematic = true;
             }
 
@@ -57,6 +59,16 @@ public class HoldingManager : MonoBehaviour
         }
     }
     
+    public bool TryPickUp(GameObject obj)
+    {
+        if (heldObject == null)
+        {
+            PickUp(obj);
+            return true;
+        }
+        return false;
+    }
+
     void Update()
     {
         if (heldObject != null)
