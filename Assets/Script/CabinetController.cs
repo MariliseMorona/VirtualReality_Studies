@@ -6,23 +6,24 @@ public class CabinetController : MonoBehaviour
 {
 
     [SerializeField] private List<SpotController> spots;
-    
+
     void OnCollisionEnter(Collision collision)
     {
         if (collision.transform.TryGetComponent<IInteractable>(out IInteractable interactable))
         {
-            TryToPutOnCabinet(collision.gameObject);
+            // Poder guardar no armário
+            TryToPuOnCabinet(collision.gameObject);
         }
     }
 
-    void TryToPutOnCabinet(GameObject obj)
+    private void TryToPuOnCabinet(GameObject obj)
     {
         if (GetAvailableSpot() is SpotController availableSpot)
         {
             obj.transform.SetParent(availableSpot.transform);
             obj.transform.localPosition = Vector3.zero;
             obj.transform.localRotation = Quaternion.identity;
-
+            
             if (obj.TryGetComponent<Rigidbody>(out Rigidbody rb))
             {
                 rb.isKinematic = true;
@@ -39,6 +40,7 @@ public class CabinetController : MonoBehaviour
                 return spot;
             }
         }
+        
         return null;
     }
 }
